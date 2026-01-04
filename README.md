@@ -121,16 +121,7 @@ The tuned Decision Tree achieved the best combination of high recall and PR-AUC,
   - pandas, numpy, matplotlib, seaborn
   - scikit-learn
 
-## Repository Structure (example)
 
-```
-phase3_project/
-├─ data/
-│  └─ bigml_59c28831336c6604c800002a.csv
-├─ index.ipynb
-├─ modeling_pipeline.py  # optional, scripted pipeline runner
-└─ README.md
-```
 
 ## Conclusion
 
