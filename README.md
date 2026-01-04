@@ -5,8 +5,10 @@ Predictive classification project to identify customers at high risk of churn fo
 
 ## Overview
 
-- Goal: Predict whether a customer will churn based on their usage patterns, service plans, and support engagement.
-- Why it matters: Retaining customers is less costly than acquiring new ones; proactively identifying churn risk enables timely interventions (offers, outreach).
+- Goal: Predict whether a customer will churn based on their usage patterns, service plans, and account information.
+
+- Why it matters: Retaining customers is less costly than acquiring new ones; proactively identifying churn risk enables timely interventions.
+
 - Approach: Full ML workflow — data understanding, feature engineering, stratified train/test split, class-imbalance handling, baseline and tuned models, recall/PR-AUC-driven evaluation, and business recommendations.
 
 ## Business and Data Understanding
@@ -15,6 +17,7 @@ Predictive classification project to identify customers at high risk of churn fo
 - Customer retention team in a telecommunications company. They need to catch as many potential churners as possible (high recall) while keeping outreach costs reasonable.
 
 ### Business Problem
+- Customer churn is a major challenge for telecommnication companies as acquiring new customers is more costly than retaining existing ones. The customer retention team's goal is to proactively identify customers at high risk of churning and try to help before they leave.
 - Missed churners (false negatives) are expensive: if not flagged, they may leave before action can be taken. Therefore, recall on the churn class (class 1) is the priority metric.
 
 ### Dataset
@@ -25,6 +28,28 @@ Predictive classification project to identify customers at high risk of churn fo
 ### Data Characteristics
 - Imbalanced target: ~14.5% churners vs ~85.5% non-churners.
 - Several correlated variables by design (e.g., charges are linear transforms of minutes).
+
+ 
+## Exploratory Data Analysis (EDA)
+
+We explored the target distribution and key behavioral patterns to guide modeling and feature engineering:
+
+- Class distribution (countplot of churn)
+  - The churn class is the minority (~14.5%), confirming an imbalanced problem. Accuracy alone would be misleading; recall and PR-AUC are more appropriate for evaluation.
+
+- Usage distribution (histogram of total day minutes)
+  - Most customers exhibit moderate usage with a long tail of heavier users. This motivated log transforms for usage minutes to reduce skew and stabilize models.
+
+- Customer service calls vs churn (boxplot)
+  - Churners tend to have higher customer service calls, consistent with dissatisfaction. This informed creating service_call_rate and keeping customer service calls as key predictors.
+
+- Correlation heatmap (numeric features)
+  - Charges are highly correlated with minutes (by design), so charge columns were dropped to avoid overweighting the same signal.
+  - Usage metrics across periods are moderately correlated; engineered averages and totals help summarize intensity cleanly.
+
+These EDA findings directly informed our data preparation (dropping charge columns, engineering averages and service_call_rate, applying log transforms) and our metric choice (recall, PR-AUC) for an imbalanced classification problem.
+
+ 
 
 ## Modeling
 
