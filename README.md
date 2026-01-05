@@ -91,11 +91,12 @@ Given the class imbalance and business need to minimize false negatives:
 
 ### Results (Test Set)
 - Logistic Regression:
-  - Recall ≈ 0.711, PR-AUC ≈ 0.430, ROC-AUC ≈ 0.819
+  - Recall ≈ 0.711, PR-AUC ≈ 0.429, ROC-AUC ≈ 0.819
 - Decision Tree (baseline):
-  - Recall ≈ 0.649, PR-AUC ≈ 0.416, ROC-AUC ≈ 0.782
+  - Recall ≈ 0.309, PR-AUC ≈ 0.479, ROC-AUC ≈ 0.741
 - Tuned Decision Tree (final model):
-  - Recall ≈ 0.763, PR-AUC ≈ 0.656, ROC-AUC ≈ 0.831, Accuracy ≈ 0.889
+  - Recall ≈ 0.752, PR-AUC ≈ 0.598, ROC-AUC ≈ 0.803
+- Accuracy ≈ 0.79
 
 The tuned Decision Tree achieved the best combination of high recall and PR-AUC, aligning with the business objective while maintaining strong overall performance.
 
