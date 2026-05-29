@@ -154,4 +154,4 @@ The tuned Decision Tree achieved the best combination of high recall and PR-AUC,
 This project delivers a recall-first churn prediction model suitable for proactive retention. The tuned Decision Tree provides the best recall and PR-AUC among candidates while remaining interpretable for business stakeholders. With , ongoing monitoring, and periodic retraining, the model can be deployed to support timely and cost-effective customer retention strategies.
 
 # Tableau link
-[Customer Churn Dashboard Link]("https://public.tableau.com/app/profile/fiona.mburu/viz/CustomerChurnAnalysis_17800659420390/CustomerChurnDashboard#1")
+[Customer-Churn-Dashboard-Link](https://public.tableau.com/app/profile/fiona.mburu/viz/CustomerChurnAnalysis_17800659420390/CustomerChurnDashboard#1)
